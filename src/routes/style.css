@@ -1,0 +1,14 @@
+.grid-columns-main {
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+.centered-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    margin-left: auto;
+    margin-right: auto;
+    min-height: 100vh;
+}

@@ -7,8 +7,8 @@ import type { Person } from "~/components/shuffle-view/ShuffleView.types";
 export const PeopleContext = createContextId<Person[]>("PeopleContext");
 
 export default component$(() => {
-	// const people = JSON.parse(import.meta.env.PUBLIC_PEOPLE) ?? PEOPLE_EXAMPLE
-	useContextProvider(PeopleContext, PEOPLE_EXAMPLE);
+	const people = JSON.parse(import.meta.env.PUBLIC_PEOPLE);
+	useContextProvider(PeopleContext, people ?? PEOPLE_EXAMPLE);
 
   return (
     <ShuffleView />

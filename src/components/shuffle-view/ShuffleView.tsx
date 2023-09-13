@@ -16,12 +16,14 @@ export default component$(() => {
     const getAvailablePeople = $(() => allPeople.filter((person) => person.selected));
 
     const getRandomPeople = $(async (peopleNumber: number) => {
-        const randomPeople = [];
-        for (let i = 0; i < peopleNumber; i++) {
-            const availablePeople = await getAvailablePeople();
-            const randomIdx = await getRandomIdx(availablePeople);
-            randomPeople.push(availablePeople[randomIdx]);
-            availablePeople.splice(randomIdx, 1);
+        const availablePeople = await getAvailablePeople();
+        const randomIdx = await getRandomIdx(availablePeople);
+        const randomPeople: Person[] = [];
+        for(let i = 0; i < peopleNumber; i++) {
+            const arrLen = availablePeople.length;
+            const currIdx = randomIdx + i
+            const correctedIdx = currIdx < arrLen ? currIdx : currIdx - arrLen
+            randomPeople.push(availablePeople[correctedIdx]);
         }
         return randomPeople;
     });

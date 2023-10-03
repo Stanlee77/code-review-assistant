@@ -1,0 +1,75 @@
+@keyframes roll {
+    0% {
+        transform: translateY(-50px) scale(.8);
+        opacity: 0;
+    }
+    20% {
+        transform: translateY(-50px) scale(.9);
+        opacity: .8;
+    }
+    40% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    60% {
+        transform: translateY(50px) scale(.9);
+        opacity: .8;
+    }
+    80% {
+        transform: translateY(50px) scale(.8);
+        opacity: 0;
+    }
+    100% {
+        opacity: 0;
+    }
+}
+
+@keyframes tilt {
+    0% {
+        transform: rotateX(80deg);
+        opacity: 1;
+    }
+    20% {
+        transform: rotateX(60deg);
+    }
+    40% {
+        transform: rotateX(20deg);
+    }
+    60% {
+        transform: rotateX(-20deg);
+    }
+    80% {
+        transform: rotateX(-90deg);
+        opacity: 1;
+    }
+    81% {
+        transform: rotateX(-100deg);
+        opacity: 0;
+    }
+    100% {
+        /* transform: rotateX(-120deg); */
+        opacity: 0;
+    }
+}
+
+.custom-roll-animation li {
+    /* animation: roll 5s 1; */
+    animation-name: roll;
+    animation-iteration-count: infinite;
+    position: absolute;
+    perspective: 300px;
+    animation-fill-mode: both;
+    /* background-color: blue; */
+    animation-timing-function: cubic-bezier(0.91, 0.24, 0.15, 0.67);
+}
+
+.custom-roll-animation li div {
+    animation-name: tilt;
+    animation-iteration-count: infinite;
+    animation-timing-function: cubic-bezier(0.91, 0.24, 0.15, 0.67);;
+}
+
+.w-300 {
+    width: 400px;
+    text-align: center;
+}
